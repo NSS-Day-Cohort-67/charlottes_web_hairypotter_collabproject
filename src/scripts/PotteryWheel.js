@@ -9,5 +9,5 @@ export const makePottery = (shape, weight, height) => {
         height: height
     }
     potteryId++
-        return newPottery
+    return newPottery
 }
