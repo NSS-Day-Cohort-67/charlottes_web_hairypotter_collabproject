@@ -1,5 +1,7 @@
 import {firePottery} from "./kiln.js"
 import { makePottery } from "./PotteryWheel.js"
+import { toSellOrNotToSell } from "./PotteryCatalog.js"
+import { potteryList} from "./PotteryList.js"
 
 // Make 5 pieces of pottery at the wheel
 let mug = makePottery("mug", 40, 20)
@@ -21,26 +23,40 @@ let vase = makePottery("oval", 4, 12)
 // each fired piece should now have a `fired` property with a value of `true`
 // fireMug.cracked = false
 let firedMug = firePottery(mug, 2200)
-console.log(firedMug)
+
 //firedBowl.cracked = true
 let firedBowl = firePottery(bowl, 3000)
-console.log(firedBowl)
+
 
 //firedPlatter.cracked = false
 let firedPlatter = firePottery(platter, 1500)
-console.log(firedPlatter)
+
 
 //firedPlate.cracked = true
 let firedPlate = firePottery(plate, 2500)
-console.log(firedPlate)
+
 
 //firedVase.cracked = false
 let firedVase = firePottery(vase, 1000)
-console.log(firedVase)
+
 // Determine which ones should be sold, and their price
+let sellMug = toSellOrNotToSell(firedMug)
+console.log(sellMug)
+
+let sellBowl = toSellOrNotToSell(firedBowl)
+console.log(sellBowl)
+
+let sellPlatter = toSellOrNotToSell (firedPlatter)
+console.log(sellPlatter)
 
 
+let sellVase = toSellOrNotToSell(firedVase)
+console.log(sellVase)
+
+
+let sellPlate = toSellOrNotToSell(firedPlate)
+console.log(sellPlate)
 // Invoke the component function that renders the HTML list
 
-
-
+const potteryHTML = document.querySelector(".potteryList")
+potteryHTML.innerHTML = potteryList()
